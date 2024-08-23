@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Felinos Digitais</title>
+</head>
+<body>
+    <header>
+        <div class="jumbotron text-center">
+            <h1 id="titulo" style="font-weight: bold;">Felinos Digitais</h1>
+            <h3>Aqui você encontra imagens aleatórias de gatos peculiares!</h3>
+        </div>
+    </header>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="shadow-box p-4 bg-white rounded">
+            <h3 class="text-center">Consiga sua Imagem de gato</h4>
+            <h5 class="text-center">Será que você consegue ter a sorte de encontrar uma imagem interessante?</h5>
+            <h6>Apenas com o clique de um <button type="button" class="btn btn-primary text-center" onclick="sorteioGato()">Botão</button>, sorteie uma imagem de gato de uma infinidade de possibilidades na internet</h6>
+            <p class="text-center" style="font-style: italic;"> PS: A imagem pode demorar alguns segundos para aparecer</p>
+            <div class="image-container">
+                <img id="my_image" class="img-fluid rounded align-items-center">
+            </div>
+            <div class="retry">
+                
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function sorteioGato() {
+            fetch('https://cataas.com/cat?type=medium&position=center')
+                .then(response => {
+                    if (response.ok) {
+                        return response.blob(); // Nota 1: Professor, aparentemente essa API retorna um PNG ao invés de um JSON, então usei esse blob que não faço ideia pra que serve, mas o chat gpt mandou usar
+                    }
+                    throw new Error('Erro ao buscar imagem');
+                })
+                .then(blob => {
+                    const imageUrl = URL.createObjectURL(blob);
+                    document.getElementById('my_image').setAttribute('src', imageUrl); // Nota 2: Aparentemente fui sortudo o suficiente pra escolher uma API assim, maioria dos tutoriais do youtube são de API's que retornam em JSON, passei horas tentando fazer o metodo de converter pra JSON quando na verdade o conteudo da resposta era binário, só depois de mais horas pesquisando, descobri o metodo blob para respostas binarias, ou no meu infeliz caso, imagens :)
+                })
+                .catch(error => console.error('Erro:', error)); // Nota 3: Pelo menos eu acho que essa vai ser uma história engraçada para contar em uma aula kkkkkkkk
+        }
+    </script>
+</body>
+</html>
