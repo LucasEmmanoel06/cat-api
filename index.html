@@ -32,7 +32,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script>
         function sorteioGato() {
-            fetch('https://cataas.com/cat?type=medium&position=center')
+            fetch('https://cataas.com/cat?type=small&position=center')
                 .then(response => {
                     if (response.ok) {
                         return response.blob(); // Nota 1: Professor, aparentemente essa API retorna um PNG ao invés de um JSON, então usei esse blob que não faço ideia pra que serve, mas o chat gpt mandou usar
