@@ -1,0 +1,16 @@
+{
+    "name": "Cat Generator",
+    "short_name": "Cat-Gen",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2c3e50",
+    "icons": [
+      {
+        "src": "/Icons/180.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      }
+    ]
+  }
+  
