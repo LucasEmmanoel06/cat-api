@@ -18,18 +18,36 @@
 </header>
 
 <body>
-    <div class="container d-flex justify-content-center align-items-center">
-        <div class="shadow-box p-4 bg-white rounded">
-            <h3 class="text-center">Consiga sua Imagem de gato</h4>
-            <h5 class="text-center">Será que você consegue uma imagem interessante?</h5>
-            <!--essas tags com id "desktop" e "mobile" são o que diferenciam a exibição do botão nos dispositivos. Em resumo: no desktop o botão aparece no final de uma frase, no mobile, tem uma quebra de linha só para o botão ficar centralizado.-->
-            <h6 id="desktop" class="text-center hidden">Apenas com o clique de um <button type="button" class="btn btn-primary text-center" onclick="sorteioGato()">Botão</button><br> sorteie uma imagem de gato de uma infinidade de possibilidades na internet</h6>
-            <div id="mobile" class="hidden">
-                <h6 class="text-center"><button type="button" class="btn btn-primary text-center" style="margin: 5px; ;" onclick="sorteioGato()">Apenas com o clique de um Botão</button><br> Sorteie uma imagem de gato de uma infinidade de possibilidades na internet</h6>
+    <div class="container">
+        <div class="row justify-content-center mb-4" style="margin: 10px;">
+            <div class="col-md-6 shadow-box p-4 bg-white rounded">
+                <h3 class="text-center">Consiga sua Imagem de gato</h3>
+                <h5 class="text-center">Será que você consegue uma imagem interessante?</h5>
+                <h6 id="desktop" class="text-center hidden">
+                    Apenas com o clique de um 
+                    <button type="button" class="btn btn-primary text-center" onclick="sorteioGato()">Botão</button>
+                    <br> 
+                    sorteie uma imagem de gato de uma infinidade de possibilidades na internet
+                </h6>
+                <div id="mobile" class="hidden">
+                    <h6 class="text-center">
+                        <button type="button" class="btn btn-primary text-center" style="margin: 5px;" onclick="sorteioGato()">Apenas com o clique de um Botão</button>
+                        <br> 
+                        Sorteie uma imagem de gato de uma infinidade de possibilidades na internet
+                    </h6>
+                </div>
+                <p class="text-center" style="font-style: italic;"> PS: A imagem pode demorar alguns segundos para aparecer</p>
+                <div class="image-container">
+                    <img id="my_image" class="img-fluid rounded align-items-center">
+                </div>
             </div>
-            <p class="text-center" style="font-style: italic;"> PS: A imagem pode demorar alguns segundos para aparecer</p>
-            <div class="image-container">
-                <img id="my_image" class="img-fluid rounded align-items-center">
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 shadow-box p-4 bg-white rounded" style="margin: 10px;">
+                <div class="column text-center">
+                  <p><button type="button" onclick="getStream('video')">Filme seu Gato</button></p>
+                  <video controls autoplay style="height:180px; width: 240px;"></video>
+                </div>
             </div>
         </div>
     </div>
